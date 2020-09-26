@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/swiper.min.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/swiper.min.js"></script>
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>首页_{$site.name}</title>
+</head>
+<body>
+<header class="header">
+    首页
+</header>
+<div class="home-bg">
+    {include file="common/banner" /}
+    <div class="com-desc">
+        <div class="com-logo">
+            <img src="__CDN__/assets/home/images/h-logo.png" alt="" class="object">
+        </div>
+        <div class="desc">
+            <a href="{:url('about/index')}">
+                <div class="pic-box">
+                    <img src="{$data['web_about']['image']}" alt="" class="object">
+                </div>
+                <div class="txt">
+                    {$data['web_about']['description']}
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="com-news">
+        <div class="title">
+            <a href="{:url('article/index')}">
+                <div class="tit">
+                    <img src="__CDN__/assets/home/images/hnew-icon.png" alt="">
+                    <h3>企业新闻</h3>
+                </div>
+                <div class="more">
+                    MORE+
+                </div>
+            </a>
+        </div>
+        <div class="news-list">
+
+        </div>
+    </div>
+    <div class="pro-connect">
+        <div class="user">
+
+            <div class="photo">
+                <img src="{$circle.image}" alt="" >
+            </div>
+            <div class="user-content">
+                <!-- 根据active类名改变收藏按钮 -->
+                <div class="row row1">
+                    <span>{$circle.username}</span>
+                    <img src="__CDN__/assets/home/images/store.png" alt="" class="gray-star">
+                    <img src="__CDN__/assets/home/images/ystore.png" alt="" class="yellow-star hidden">
+                </div>
+                <div class="row row2 comrow2">
+                   {$circle.content}
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-container slide2">
+            <div class="swiper-wrapper">
+                {volist name='circle.images' id='vo'}
+                    <div class="swiper-slide">
+                        <img src="{$vo}" alt="">
+                    </div>
+                {/volist}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination pagination2"></div>
+        </div>
+    </div>
+    <div class="hservice">
+        <div class="title com-title">
+            <a href="{:url('service/index')}" class="comh3">
+                综合服务
+            </a>
+        </div>
+        <div class="ser-content">
+            <div class="row row1">
+                {volist name="$data['category']" id="vo"}
+                    {if condition="$key lt 2" }
+                        <a href="{:url('service/serviceList')}?pid={$vo.id}" class="item item{$key+1}">
+                            <div class="pic-box">
+                                <img src="{$vo.image}" alt="" class="object">
+                            </div>
+                            <div class="item-name">
+                                <img src="__CDN__/assets/home/images/hicon{$key+1}.png" alt="">
+                                <h4>{$vo.name}</h4>
+                            </div>
+                        </a>
+                    {/if}
+               {/volist}
+            </div>
+            <div class="row row2">
+                {volist name="$data['category']" id="vo"}
+                    {if condition="$key gt 1" }
+                        <a href="{:url('service/serviceList')}?pid={$vo.id}">
+                            <div class="pic-box">
+                                <img src="{$vo.image}" alt="" class="object">
+                            </div>
+                            <div class="item-name">
+                                <img src="__CDN__/assets/home/images/hicon3.png" alt="">
+                                <h4>{$vo.name}</h4>
+                            </div>
+                        </a>
+                    {/if}
+                {/volist}
+            </div>
+        </div>
+    </div>
+    <div class="hstaff">
+        <div class="title com-title">
+            <h3 class="comh3">
+                员工风采
+            </h3>
+        </div>
+        <div class="staff-desc">
+            <a href="{:url('staff/index')}">
+                <div class="pic-box">
+                    <img src="{$data.staff['image']}" alt="" class="object">
+                </div>
+                <div class="desc">
+                    {$data.staff['content']}
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="add-us post">
+        <img src="{$data.join['image']}" alt="">
+    </div>
+    <div class="post">
+        <a href="{:url('merchants/index')}">
+            <img src="__CDN__/assets/home/images/pic2.jpg" alt="">
+        </a>
+    </div>
+    <div class="connect">
+        <div class="title com-title">
+            <h3 class="comh3">
+                联系方式
+            </h3>
+        </div>
+        <div class="con-info">
+            <div class="row row1">
+                <img src="__CDN__/assets/home/images/address-icon.png" alt="">
+                <div class="text">
+                    地址：{$data.contact['address']}
+                </div>
+            </div>
+            <div class="row row2">
+                <img src="__CDN__/assets/home/images/mail.png" alt="">
+                <div class="text">
+                    邮箱：{$data.contact['email']}
+                </div>
+            </div>
+            <div class="row row3">
+                <div class="item">
+                    <div class="pic-box">
+                        <img src="__CDN__/assets/home/images/haddress.png" alt="" >
+                    </div>
+                    <div class="name">
+                        四川和美
+                    </div>
+                </div>
+
+                <div class="item item2">
+                    <div class="pic-box">
+                        <img src="{$data.contact['image']}" alt="" >
+                    </div>
+                    <div class="name">
+                        微信二维码
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{include file="common/footer" /}
+{include file="common/script" /}
+</body>
+</html>

@@ -1,0 +1,67 @@
+body{width:100%;height:100%;background-image:url(../images/my_bg.png);background-size:cover;background-repeat:no-repeat;-webkit-text-size-adjust:100%}
+.sigin_name{
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+}
+.integral-img{
+	width: 100%;
+	text-align: center;
+	margin-top: 0.2rem;
+	color:#fee480;
+	font-size: 16px;
+}
+.integral-img img{
+	width: 0.5rem;
+}
+.integral-button{
+	width: 100%;
+	text-align: center;
+	margin-top: 0.3rem;
+}
+.integral-bor{
+	width: 25%;
+	height: 0.75rem;
+	margin: 0 auto;
+	border: 1px solid white;
+	border-radius: .1rem;
+}
+.integral-bor button{
+	width: 90%;
+	height: 80%;
+	margin-top: 4%;
+	border-radius: .1rem;
+	color:white;
+	background-color: rgba(255,255,255,0.5);
+}
+.step-title , .step-description{
+	font-size: 12px;
+	color: white;
+}
+body .custom-class .steps-vertical .step-line  {
+    top: 19px;
+}
+.step-icon-custom-box {
+    width: 40px;
+    height: 40px;
+}
+.step-icon-custom {
+    margin-top: -2px;
+    font-size: 26px;
+}
+.sigin-data{
+	width: 90%;
+	text-align: center;
+	margin: .5rem auto;
+}
+.sigin-data label{
+	float: left;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0.2rem;
+}
+.layui-table-td{
+	border: none !important;
+	border-bottom: 1px solid #3e3e3e !important;
+}

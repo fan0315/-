@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/swiper.min.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/swiper.min.js"></script>
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>商品详情_{$data.name}</title>
+</head>
+
+<body>
+<header class="header">
+    <img src="__CDN__/assets/home/images/back.png" alt="">
+    商品详情
+</header>
+<div class="pro-details points-details">
+    <div class="pro-slide">
+        <div class="swiper-container slide1">
+            <div class="swiper-wrapper">
+                {volist name="data.images" id="r"}
+                    <div class="swiper-slide">
+                        <div class="pic-box">
+                            <img src="{$r}" alt="" class="object">
+                        </div>
+                    </div>
+                {/volist}
+            </div>
+            <div class="item-info">
+                <p class="name overflow">{$data.name}</p>
+                <p class="points">{$data.integral}积分</p>
+                <p class="row-price">
+                    <span class="price">{$data.price}元</span>
+                    <span>{$data.specs}</span>
+                </p>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination pagination1"></div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="title">
+            <img src="__CDN__/assets/home/images/detail.png" alt="">
+            商品详情
+        </div>
+        <div class="content">
+            {$data.content}
+        </div>
+    </div>
+    <div class="points-btn combtn">
+        <a href="javascript:;">
+            立即兑换
+        </a>
+    </div>
+</div>
+<!-- 购物车弹出层 -->
+<div class="pop-mask hidden" id="pop-mask">
+    <div class="mask"></div>
+    <div class="pop-ups">
+        <div   id="addForm">
+            <div class="cart">
+                <div class="cart-icon">
+                    <img src="__CDN__/assets/home/images/cart-pull.png" alt="" class="object" id="cart-pull">
+                </div>
+                <div class="cart-bg">
+                </div>
+            </div>
+            <div class="onself-points">
+                我的积分：<span>6000</span>
+            </div>
+            <div class="pro-info">
+                <div class="pic-box combg" >
+                    <img src="__CDN__/assets/home/images/pro-slide.png" alt="" class="compic">
+                </div>
+                <div class="item-info">
+                    <p class="name comrow2">{$data.name}</p>
+                    <p class="row-price">
+                        <span>{$data.specs}</span>
+                    </p>
+                    <div class="row-add">
+                        <p class="points" id="points">{$data.integral}积分</p>
+                        <div class="add-box">
+                            <span class="last">剩余{$data.surplus_itystock}件</span>
+                            <button id="reduce" class="reduce icon">-</button>
+                            <span id="number" name="purchase_num" class="num">1</span>
+                            <input type="hidden" value="1" name="purchase_num" id="purchase_num">
+                            <button id="plus"  class="add icon">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="goods_id" id="goods_id" value="{$data.id}">
+            <div class="pop-btn">
+                <div class="submit" id="btn">
+                    立即兑换
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#btn').on('click',function () {
+        var goods_id = $('#goods_id').val();
+        var purchase_num = $('#purchase_num').val();
+        $.ajax({
+            url:"{:url('PointsPurchase/index')}",
+            type:'json',
+            data:{goods_id:goods_id,purchase_num:purchase_num},
+            method:'post',
+            success:function (res) {
+                if(res.code == 1){
+                    window.location.replace("{:url('PointsPurchase/index')}");
+                }else{
+                    alert(res.msg);
+                }
+            },
+            error:function (e) {
+                alert('网络错误');
+            }
+        })
+    })
+</script>
+<script>
+    //-
+    $("#reduce").on("click", function() {
+        var val = $("#number").text();
+        //var points = {$data.integral};
+        if (val > 1) {
+            $("#number").html(val - 1);
+            $("#purchase_num").val(val - 1);
+            // $('#points').html(parseInt(val-1) * points+'积分');
+        }
+    });
+    //+
+    $("#plus").on("click", function() {
+        var max = {$data.surplus_itystock};
+        //var points = {$data.integral};
+        var val = $("#number").text();
+        //console.log(points);
+        if(val < max){
+            $("#number").html(parseInt(val) + 1);
+            $("#purchase_num").val(parseInt(val) + 1);
+            // $('#points').html(parseInt(val+1) * points+'积分');
+        }else{
+            return false;
+        }
+    });
+
+    $('#cart-pull').click(function () {
+        $('#pop-mask').slideToggle();
+    })
+</script>
+<script>
+    var swiper = new Swiper('.slide1', {
+        pagination: '.pagination1',
+        paginationClickable: true
+    });
+    $(function() {
+        $('.combtn').click(function() {
+            $('.pop-mask').css('display','block');
+            $('.pop-mask').css('transition','.3s');
+        })
+    })
+</script>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+<style>
+    .pop-ups .pro-info .item-info .row-add .add-box .num {
+        display: block;
+        width: 1.5rem;
+        height: 0.51rem;
+        line-height: 0.3rem;
+        padding: 0.1rem 0.4rem;
+        border: 1px solid #3A3A3A;
+        border-radius: 0.25rem;
+    }
+</style>
+</html>

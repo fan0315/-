@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>加盟表单</title>
+</head>
+
+<body>
+<header class="header">
+    <img src="__CDN__/assets/home/images/back.png" alt="">
+    加盟表单
+</header>
+<div class="add-form">
+    <form action="" id="addForm">
+        <div class="content">
+            <div class="title">
+                <img src="__CDN__/assets/home/images/form-icon.png" alt="">
+                <h3>
+                    招商加盟意向表单
+                </h3>
+                <img src="__CDN__/assets/home/images/form-icon.png" alt="">
+            </div>
+            <div class="item item1">
+                <div class="name">
+                    1、姓名
+                </div>
+                <input type="text" name="name" value="" id="name">
+            </div>
+            <div class="item item2">
+                <div class="name">
+                    2、性别
+                </div>
+                <div class="man sex">
+                    <input type="radio" value="1" name="sex" class="radioclass" checked />男
+                </div>
+                <div class="woman sex">
+                    <input type="radio" value="2" name="sex" class="radioclass" />女
+                </div>
+            </div>
+            <div class="item item3">
+                <div class="name">
+                    3、联系方式
+                </div>
+                <input type="text" name="phone" value="" id="phone">
+            </div>
+            <div class="item item4">
+                <div class="name">
+                    4、公司名称
+                </div>
+                <input type="text" name="corporate_name" value="">
+            </div>
+            <div class="item item5">
+                <div class="name">
+                    5、您目前所在行业
+                </div>
+                <div class="sele-box">
+                    <select name="industry" class="select" id="industry">
+
+
+                    </select>
+                    <select class="select" name="industry_two" id="industry_two">
+
+
+                    </select>
+                </div>
+            </div>
+            <div class="item item6">
+                <div class="name">
+                    6、地址
+                </div>
+                <div class="sele-box">
+                    <div class="box">
+                        <select name="province" class="select" id="province">
+
+                        </select>
+                        <select name="city" class="select" id="city">
+                            <option value="">市</option>
+                        </select>
+                       <select name="county" class="select" id="area">
+                           <option value="">区</option>
+                       </select>
+                    </div>
+
+                </div>
+                <input type="text" placeholder="请输入详细地址" name="address" value="">
+            </div>
+            <div class="item item7">
+                <div class="name">
+                    7、公司规模
+                </div>
+                <input type="text" name="company_size" value="" />
+            </div>
+        </div>
+        <div class="sure" id="sure">
+            确定
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+<script>
+    $('#sure').click(function (e) {
+       var name = $('#name').val();
+       var phone = $('#phone').val();
+       if(name == "" || name == null){
+           alert('姓名不能为空');
+           return false;
+       }
+        if(phone == "" || phone == null){
+            alert('手机不能为空');
+            return false;
+        }
+        //验证手机号码是否正确
+        if(checkPhone(phone) == false){
+            alert('手机格式不正确');
+            return false;
+        }
+       $.ajax({
+           url:"{:url('index')}",
+           type:'json',
+           data:$('#addForm').serialize(),
+           method:'post',
+           success:function (res) {
+               if(res.code == 1){
+                   alert(res.msg);
+                   //window.location.reload()  //刷新页面
+                   window.history.go(-1) //是返回上一页
+                   //window.location.go(-1) //是刷新上一页
+               }else{
+                   alert(res.msg);
+               }
+           },
+           error:function (e) {
+               alert('网络错误');
+           }
+       })
+    })
+    function checkPhone(phone){
+        //var phone = document.getElementById('phone').value;
+        if(!(/^1[3456789]\d{9}$/.test(phone))){
+            return false;
+        }
+    }
+</script>
+<script>
+    /**
+     * 行业
+     */
+    function industry()
+    {
+        $.post("{:url('industry')}", {param1: 'value1'}, function(data, textStatus, xhr) {
+            var html = "";
+            for(i = 0;i<data.length;i++){
+                html += "<option value='"+data[i]['code']+"'>"+data[i]['name']+"</option>";
+            }
+            $('#industry').html(html);
+        })
+    }
+    industry();
+    function industry_two(){
+        var industry_two = $('#industry').val(); //上级ID
+       // console.log(industry_two);
+        $.post("{:url('industry_two')}",{industry_id:industry_two},function (data,textStatus, xhr) {
+            var html1 = "";
+            for (var i = 0; i<data.length; i++) {
+                html1 += "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+            }
+            $('#industry_two').html(html1);
+
+        })
+    }
+    $('#industry').change(function(event) { //选择行业
+        industry_two();
+    });
+    // $('#industry_two').change(function(event) { //选择市
+    //     area();
+    // });
+</script>
+<script>
+    /* 省市区三级联动 */
+    function privance() //省
+    {
+        $.post("{:url('privance')}", {param1: 'value1'}, function(data, textStatus, xhr) {
+            var html = "";
+            for (var i = 0; i<data.length; i++) {
+                html += "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+            }
+            $('#province').html(html);
+        });
+    }
+    privance();
+
+    function city() //市
+    {
+        var provinceid = $('#province').val(); //省id
+        $.post("{:url('city')}", {provinceid: provinceid}, function(data, textStatus, xhr) {
+            var html1 = "";
+            for (var i = 0; i<data.length; i++) {
+                html1 += "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+            }
+            $('#city').html(html1);
+            area();
+        });
+    }
+   city();
+
+    function area() //县
+    {
+        var cityid = $('#city').val(); //市id
+        //alert(cityid);
+        $.post("{:url('area')}", {cityid: cityid}, function(data, textStatus, xhr) {
+            var html3 = "";
+            for (var i = 0; i<data.length; i++) {
+                html3 += "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+            }
+            $('#area').html(html3);
+        });
+    }
+    area();
+
+    $('#province').change(function(event) { //选择省
+        city();
+    });
+
+    $('#city').change(function(event) { //选择市
+        area();
+    });
+    /* 省市区三级联动 end */
+
+
+</script>
+</body>
+
+</html>

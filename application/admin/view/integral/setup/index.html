@@ -1,0 +1,105 @@
+<!--<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/saveSetup">-->
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Member_reg')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-member_reg" data-rule="required" class="form-control w20" name="row[member_reg]" type="number" value="" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Binding_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-binding_phone" data-rule="required" class="form-control" name="row[binding_phone]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Share')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-share" data-rule="required" class="form-control" name="row[share]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Dianzan')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dianzan" data-rule="required" class="form-control" name="row[dianzan]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Dianzan_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dianzan_num" data-rule="required" class="form-control" name="row[dianzan_num]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Collection')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-collection" data-rule="required" class="form-control" name="row[collection]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Collection_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-collection_num" data-rule="required" class="form-control" name="row[collection_num]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Comment')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-comment" data-rule="required" class="form-control" name="row[comment]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Comment_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-comment_num" data-rule="required" class="form-control" name="row[comment_num]" type="number" value="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2"><b>签到设置</b></label>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">日常签到积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-day_checkin" data-rule="required" class="form-control" name="row[day_checkin]" type="number" value="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">连续3天积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-three_day" data-rule="required" class="form-control" name="row[three_day]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">连续7天积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-seven_day" data-rule="required" class="form-control" name="row[seven_day]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">连续15天积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-fifteen_day" data-rule="required" class="form-control" name="row[fifteen_day]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">连续25天积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-twenty_five_day" data-rule="required" class="form-control" name="row[twenty_five_day]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">连续30天积分:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-thirty_day" data-rule="required" class="form-control" name="row[thirty_day]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed ">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

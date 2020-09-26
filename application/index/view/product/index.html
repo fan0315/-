@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/swiper.min.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/swiper.min.js"></script>
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>产品_{$site.name}</title>
+</head>
+
+<body>
+<header class="header">
+    产品
+</header>
+<div class="home-bg product">
+    {include file="common/banner" /}
+    <div class="swiper-container slide2">
+        <div class="swiper-wrapper">
+            {volist name="category" id="vo"}
+            <a href="{:url('product/productList')}?pid={$vo.id}" style="margin: 0 8px;">
+                <div class="swiper-slide">
+                    <div class="pic-box">
+                        <img src="{$vo.image}" alt="{$vo.name}">
+                    </div>
+                    <div class="txt">
+                        {$vo.name}
+                    </div>
+                </div>
+            </a>
+            {/volist}
+        </div>
+    </div>
+    <div class="pro-recommend">
+        <div class="title">
+           推荐产品
+        </div>
+        <div class="content">
+            {volist name="product.recommend" id="vo"}
+            <a href="{:url('product/info')}?id={$vo.id}" class="item">
+                <div class="pic-box">
+                    <img src="{$vo.image}" alt="" class="object">
+                </div>
+                <div class="txt">
+                   {$vo.name}
+                </div>
+            </a>
+           {/volist}
+        </div>
+    </div>
+    <div class="pro-recommend">
+        <div class="title">
+            最新产品
+        </div>
+        <div class="content">
+            {volist name="product.newest" id="vo"}
+            <a href="{:url('product/info')}?id={$vo.id}" class="item">
+                <div class="pic-box">
+                    <img src="{$vo.image}" alt="" class="object">
+                </div>
+                <div class="txt">
+                    {$vo.name}
+                </div>
+            </a>
+            {/volist}
+        </div>
+    </div>
+    <div class="pro-recommend partner">
+        <div class="title">
+            合作伙伴介绍
+        </div>
+        <div class="content">
+            <div class="swiper-container slide3">
+                <div class="swiper-wrapper">
+
+                    {volist name="product.partner" id="vo"}
+                    <div class="swiper-slide">
+                        <a href="./proList.html">
+                            <div class="pic-box">
+                                <img src="{$vo.image}" class="object" alt="">
+                            </div>
+                            <div class="txt">
+                                {$vo.name}
+                            </div>
+                        </a>
+                    </div>
+                    {/volist}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tel">
+    <a href="tel:13544442345">
+        <img src="__CDN__/assets/home/images/tel.png" alt="">
+        拨打电话
+    </a>
+</div>
+{include file="common/footer" /}
+
+<script>
+    var swiper = new Swiper('.slide1', {
+        pagination: '.pagination1',
+        paginationClickable: true
+    });
+    var swiper = new Swiper('.slide2', {
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 17,
+        freeMode: true
+    });
+    var swiper = new Swiper('.slide3', {
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 14,
+        freeMode: true
+    });
+</script>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+</html>

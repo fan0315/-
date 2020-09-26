@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/swiper.min.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/swiper.min.js"></script>
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>员工详情_{$site.name}</title>
+</head>
+
+<body>
+<header class="header">
+    <img src="__CDN__/assets/home/images/back.png" alt="">
+    详情
+</header>
+<div class="staff-detail">
+    {volist name="data" id="vo"}
+    <div class="station">
+        <div class="box combg">
+            <div class="staff-slide">
+                <div class="station-name">
+            <span class="year">
+              {$vo.year}.
+            </span>
+            <span class="date">
+            {$vo.monthday}
+            </span>
+                    <span class="location">{$vo.title}</span>
+                </div>
+                <div class="swiper-container slide1">
+                    <div class="swiper-wrapper">
+                        {volist name="$vo.images" id="r"}
+                            {if condition="$key eq 0"}
+                            <div class="swiper-slide">
+                                <div class="pic-box">
+                                    <img src="{$r}" alt="" class="object">
+                                </div>
+                            </div>
+                            {else if condition="$key lt 0"}
+                            <div class="swiper-slide">
+                                <img src="{$r}" alt="" class="object">
+                            </div>
+                            {/if}
+                        {/volist}
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination pagination1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/volist}
+
+</div>
+<script>
+    var swiper = new Swiper('.slide1', {
+        pagination: '.pagination1',
+        paginationClickable: true
+    });
+
+</script>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+
+</html>

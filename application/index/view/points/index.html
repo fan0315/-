@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>积分商城</title>
+</head>
+
+<body>
+<header class="header">
+    <img src="__CDN__/assets/home/images/back.png" alt="">
+    积分商城
+</header>
+<div class="points-mall">
+    {volist name="data" id="vo"}
+        <a href="{:url('points/info')}?id={$vo.id}" class="item combg">
+            <div class="pic-box combg">
+                <img src="__CDN__/assets/home/images/pro-slide.png" alt="">
+            </div>
+            <div class="item-info">
+                <p class="name overflow">{$vo.name}</p>
+                <p class="points">{$vo.integral}</p>
+                <p class="row-price">
+                    <span class="price">{$vo.price}元</span>
+                    <span>{$vo.specs}</span>
+                </p>
+            </div>
+        </a>
+    {/volist}
+</div>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+
+</html>

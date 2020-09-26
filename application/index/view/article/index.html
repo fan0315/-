@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>新闻列表_{$site.name}</title>
+</head>
+
+<body>
+<header class="header">
+    <img src="__CDN__/assets/home/images/back.png" alt="">
+    新闻列表
+</header>
+<div class="show-case news-list">
+    {volist name="data" id="vo"}
+        <div class="case">
+            <a href="{:url('article/info')}?id={$vo.id}">
+                <div class="pic-box">
+                    <img src="{$vo.image}" alt="" class="object">
+                </div>
+                <div class="case-desc">
+                    <h3 class="name">
+                        {$vo.title}
+                    </h3>
+                    <p class="desc comrow2">
+                        {$vo.memo}
+                    </p>
+                    <p class="date">
+                        {$vo.createtime|Date="Y-m-d",###}
+                    </p>
+                </div>
+            </a>
+        </div>
+    {/volist}
+</div>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+
+</html>

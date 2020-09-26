@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/staff/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/staff/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/staff/css/login.css">
+    <script type="text/javascript" src="__CDN__/assets/staff/js/jquery-3.1.1.min.js"></script>
+    <title>登录页</title>
+</head>
+
+<body>
+<div id="content-container" class="container">
+    <div class="login-circle">
+        <div class="login-circle-dashed">
+            <img src="__CDN__/assets/staff/images/login-logo.png" >
+        </div>
+    </div>
+    <div class="user-section">
+        <div class="login-main">
+            <div class="login-main2">
+                <form name="form" id="login-form" class="form-vertical" method="POST" action="">
+                    <input type="hidden" name="url" value="{$url}" />
+                    {:token()}
+                    <div class="form-group">
+                        <label class="control-label" for="username">{:__('Account')}</label>
+                        <div class="controls">
+                            <input class="form-control input-lg" id="username" type="text" name="username" value="" data-rule="required" placeholder="请输入{:__('Account')}" autocomplete="off">
+                            <div class="help-block"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password">{:__('Password')}</label>
+                        <div class="controls">
+                            <input class="form-control input-lg" id="password" type="password" name="password" data-rule="required;password" placeholder="请输入{:__('Password')}" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group1">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">{:__('Sign in')}</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__CDN__/assets/staff/js/common.js"></script>
+</body>
+
+</html>

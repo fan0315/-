@@ -1,0 +1,11 @@
+body{
+   width:100%;
+   height:100%;
+   background-image:url("/assets/home/images/login-bg.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.user-section{
+   width: 688px;
+   height: 675px;
+}

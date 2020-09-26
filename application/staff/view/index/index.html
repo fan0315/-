@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/staff/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/staff/css/staff_common.css">
+    <link rel="stylesheet" href="__CDN__/assets/staff/css/swiper.min.css">
+    <script type="text/javascript" src="__CDN__/assets/staff/js/swiper.min.js"></script>
+    <script type="text/javascript" src="__CDN__/assets/staff/js/jquery-3.1.1.min.js"></script>
+    <title>首页</title>
+</head>
+<body>
+<header class="header">
+    首页
+</header>
+<div class="staff-index index-list">
+    <div class="show_index ">
+        <p>您有一条圈子<span>审核通过</span>点击<a href="javascript:(0)">查看详情>> </a></p>
+    </div>
+    <div class="list_index">
+        <a href="{:url('invitation/index')}">
+            <div class="index-desc">
+                <div class="title">
+                    <img src="__CDN__/assets/staff/images/icon_1.png" alt="">
+                    <span class="name">
+						 帖子管理
+					</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="list_index">
+        <a href="./forinfo.html">
+            <div class="index-desc">
+                <div class="title">
+                    <img src="__CDN__/assets/staff/images/icon_2.png" alt="">
+                    <span class="name">
+							  核销扫码
+					</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="list_index">
+        <a href="./forinfo.html">
+            <div class="index-desc">
+                <div class="title">
+                    <img src="__CDN__/assets/staff/images/icon_3.png" alt="">
+                    <span class="name">
+							  核销记录
+					</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<footer class="footer">
+    <a href="./staff_index.html" class="item item1 active">
+        <div class="icon">
+            <img src="__CDN__/assets/staff/images/home-active.png" alt="">
+        </div>
+        <div class="name">官网</div>
+    </a>
+    <a href="./circle.html" class="item item3">
+        <div class="icon">
+            <img src="__CDN__/assets/staff/images/circle_sel.png" alt="">
+        </div>
+        <div class="name">圈子</div>
+    </a>
+    <a href="staff_user" class="item item3">
+        <div class="icon">
+            <img src="__CDN__/assets/staff/images/profile.png" alt="">
+        </div>
+        <div class="name">我的</div>
+    </a>
+    <div class="put-away"></div>
+</footer>
+<script>
+    var swiper = new Swiper('.slide1', {
+        pagination: '.pagination1',
+        paginationClickable: true
+    });
+    var swiper = new Swiper('.slide2', {
+        pagination: '.pagination2',
+        slidesPerView: 3,
+        slidesPerColumn: 2,
+        paginationClickable: true,
+        spaceBetween: 10
+    });
+</script>
+<script type="text/javascript" src="__CDN__/assets/staff/js/common.js"></script>
+</body>
+</html>

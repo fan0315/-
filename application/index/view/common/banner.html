@@ -1,0 +1,14 @@
+<div class="slide">
+    <div class="swiper-container slide1">
+        <div class="swiper-wrapper">
+            {volist name="data['banner']" id="vo"}
+            <div class="swiper-slide">
+                <img src="{$vo.image}" alt="{$vo.title}" class="object">
+            </div>
+            {/volist}
+        </div>
+
+        <!-- Add Pagination -->
+        <div class="swiper-pagination pagination1"></div>
+    </div>
+</div>

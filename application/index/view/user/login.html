@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/login.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>登录</title>
+</head>
+<body>
+<div id="content-container" class="container">
+    <div class="user-section login-section">
+        <div class="login-main">
+            <form name="form" id="login-form" class="form-vertical" method="POST" action="">
+                <div class="form-group">
+                    <label class="control-label" for="account">{:__('Account')}</label>
+                    <div class="controls">
+                        <input class="form-control input-lg" id="account" type="text" name="account" value="" data-rule="required" placeholder="{:__('Email/Mobile/Username')}" autocomplete="off">
+                        <div class="help-block"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="password">{:__('Password')}</label>
+                    <div class="controls">
+                        <input class="form-control input-lg" id="password" type="password" name="password" data-rule="required;password" placeholder="{:__('Password')}" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">{:__('Sign in')}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</html>

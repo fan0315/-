@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>招商加盟_{$site.name}</title>
+</head>
+
+<body>
+<header class="header">
+    <img src="__CDN__/assets/home/images/back.png" alt="">
+    招商加盟
+</header>
+<div class="merchants">
+    <div class="content">
+        <div class="title com-title">
+            <h3 class="comh3">
+                招商加盟
+            </h3>
+        </div>
+        <div class="time">
+            <img src="__CDN__/assets/home/images/time.png" alt="">
+            <span>发布时间：{$data.createtime|date="Y-m-d H:i:s",###}</span>
+        </div>
+        <div class="acrtice">
+            {$data.content}
+        </div>
+    </div>
+
+</div>
+<div class="mer-btn">
+    <a href="./addForm.html">
+        我要加盟
+        <img src="__CDN__/assets/home/images/add-com.png" alt="">
+    </a>
+</div>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+
+</html>

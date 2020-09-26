@@ -1,0 +1,50 @@
+
+.for-num{margin-top: 1rem;font-size: 14px;}
+.comrow3 {color:#FC721F;font-weight: bold;}
+.for-data{
+	height: 100%;
+	margin: 0 10px ;
+	color:#666;
+	padding: 1% 1%;
+}
+.for-case {
+  
+  background: url(../images/show-bg.png) no-repeat 100% 100%;
+}
+.for-case .case {
+  border-radius: 0.1rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px rgba(193, 193, 193, 0.33);
+  margin-bottom: 0.27rem;
+}
+.for-case .case a {
+  padding: 0.2rem 0.5rem 0.27rem 0.24rem;
+  display: flex;
+}
+.for-case .case a .pic-box {
+  width: 2.88rem;
+}
+.for-case .case a .case-desc {
+  flex: 1;
+  margin-left: 0.3rem;
+}
+.for-case .case a .case-desc .name {
+  margin-top: 0.4rem;
+}
+.for-case .case a .case-desc .desc {
+  margin-top: 0.3rem;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.pic-photo img{
+	width: 100px;
+}
+.record_title{
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0.2rem 0.5rem 0 0.24rem;
+}

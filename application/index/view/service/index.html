@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/swiper.min.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/swiper.min.js"></script>
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>综合服务_{$site.name}</title>
+</head>
+
+<body>
+
+<header class="header">
+    综合服务
+</header>
+<div class="home-bg general-service">
+    {include file="common/banner" /}
+    <div class="hservice gservice">
+        <div class="ser-content ">
+
+            {volist name="$data['category']" id="vo"}
+            {if condition="$key lt 2" }
+                <div class="item combg">
+                    <a href="{:url('service/serviceList')}?pid={$vo.id}">
+                        <div class="pic-box">
+                            <img src="{$vo.image}" alt="" class="object">
+                        </div>
+                        <div class="item-name">
+                            <img src="__CDN__/assets/home/images/hicon{$key+1}.png" alt="">
+                            <h4>{$vo.name}</h4>
+                        </div>
+                    </a>
+                </div>
+            {else if condition="$key gt 1" }
+            <div class="item combg">
+                <a href="{:url('service/serviceList')}?pid={$vo.id}">
+                    <div class="pic-box">
+                        <img src="__CDN__/assets/home/images/gser-pic1.png" alt="" class="object">
+                    </div>
+                    <div class="item-name">
+                        <img src="__CDN__/assets/home/images/hicon{$key+1}.png" alt="">
+                        <h4>{$vo.name}</h4>
+                    </div>
+                </a>
+            </div>
+            {/if}
+            {/volist}
+
+        </div>
+        <div class="ser-case">
+            <div class="com-title">
+                <h3 class="comh3">
+                    经典案例
+                </h3>
+            </div>
+            <div class="case-content show-case">
+                {volist name="$data['case']" id="vo"}
+                {if condition="$vo.is_recommend eq 1"}
+                    <div class="case">
+                        <a href="{:url('service/info')}?id={$vo.id}">
+                            <div class="pic-box">
+                                <img src="__CDN__/assets/home/images/show-case.png" alt="" class="object">
+                            </div>
+                            <div class="case-desc">
+                                <h3 class="name">
+                                    {$vo.name}
+                                </h3>
+                                <p class="desc overflow">
+                                    {$vo.description}
+                                </p>
+                            </div>
+                            <div class="top-pic">
+                                <img src="__CDN__/assets/home/images/case-top.png" alt="" class="object">
+                            </div>
+                        </a>
+                    </div>
+                {else}
+                    <div class="case">
+                        <a href="{:url('service/info')}?id={$vo.id}">
+                            <div class="pic-box">
+                                <img src="__CDN__/assets/home/images/show-case.png" alt="" class="object">
+                            </div>
+                            <div class="case-desc">
+                                <h3 class="name">
+                                    {$vo.name}
+                                </h3>
+                                <p class="desc overflow">
+                                    {$vo.description}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                {/if}
+                {/volist}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{include file="common/footer" /}
+<script>
+    var swiper = new Swiper('.slide1', {
+        pagination: '.pagination1',
+        paginationClickable: true
+    });
+
+</script>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+
+</html>

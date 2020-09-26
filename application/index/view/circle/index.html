@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/base.css">
+    <link rel="stylesheet" href="__CDN__/assets/home/css/common.css">
+    <script type="text/javascript" src="__CDN__/assets/home/js/jquery-3.1.1.min.js"></script>
+    <title>圈子_{$site.name}</title>
+</head>
+
+<body>
+<header class="header">
+    圈子
+</header>
+<div class="home-bg circle-connect">
+    {volist name="circle" id="vo"}
+        <div class="pro-connect">
+            <div class="user">
+                <div class="photo">
+                    <img src="{$vo.avatar}" alt="">
+                </div>
+                <div class="user-content">
+                    <!-- 根据active类名改变收藏按钮 -->
+                    <div class="row row1">
+                        <span>{$vo.username}</span>
+                        <img src="__CDN__/assets/home/images/store.png" alt="" class="gray-star">
+                        <img src="__CDN__/assets/home/images/ystore.png" alt="" class="yellow-star hidden">
+                    </div>
+                    <div class="row row2 comrow2">
+                        {$vo.content}
+                    </div>
+                </div>
+            </div>
+            <div class="slide2 pro-pic">
+                {volist name="vo.images" id="r"  length='9'}
+                    <div class="item">
+                        <img src="{$r}" alt="" class="compic">
+                    </div>
+               {/volist}
+            </div>
+            <div class="connect-bottom">
+                <div class="like">
+                    <span>{$vo.issue}</span>
+                    <div class="like-icon">
+                        <img src="__CDN__/assets/home/images/ylike.png" alt="">
+                        <span>{$vo.favour}</span>
+                    </div>
+                </div>
+                <!-- 通过类名active显示分享等功能 -->
+                <div class="dot active">
+                    <span class="dot-icon"></span>
+                    <span class="dot-icon"></span>
+                    <span class="dot-icon"></span>
+                    <div class="more hidden">
+                        <a href="" class="item">
+                            <img src="__CDN__/assets/home/images/wshare.png" alt="">
+                            分享
+                        </a>
+                        <a href="" class="item">
+                            <img src="__CDN__/assets/home/images/wcomment.png" alt="">
+                            评论
+                        </a>
+                        <a href="" class="item">
+                            <img src="__CDN__/assets/home/images/wlike.png" alt="">
+                            点赞
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {/volist}
+
+
+</div>
+{include file="common/footer" /}
+<script>
+    $(function() {
+
+
+    })
+</script>
+<script type="text/javascript" src="__CDN__/assets/home/js/common.js"></script>
+</body>
+
+</html>
